@@ -7,20 +7,23 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-public class Securityconfig {
+public class SecurityConfig {
+    
 	
-	
-	//basic security with default user and password ________login with basic or default custom page
-	
-	 @Bean
-	    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-	        http
-	            .authorizeHttpRequests((requests) -> requests
-	                .anyRequest().authenticated()
-	            )
-	            .httpBasic(Customizer.withDefaults());
+	//security with custom login page
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(authorizeRequests ->
+                authorizeRequests
+                    .anyRequest().authenticated()
+            )
+            .formLogin(formLogin ->
+                formLogin
+                    .loginPage("/login").permitAll()
 
-	        return http.build();
-	    }
+            )
+            .httpBasic(Customizer.withDefaults());
 
+        return http.build();
+    }
 }
