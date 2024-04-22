@@ -16,18 +16,15 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     
 	
-	//security with custom userdetails and password inline memory storage
-	
+	//security with custom userdetails and password inline memory storage role based login
+	@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
-                    .anyRequest().authenticated()
-            )
-            .formLogin(formLogin ->
-                formLogin
-                    .loginPage("/login").permitAll()
-
+                .requestMatchers("/admin").hasRole("ADMIN")
+                .requestMatchers("/user").hasRole("USER")  
+                .requestMatchers("/greet").permitAll()
             )
             .httpBasic(Customizer.withDefaults());
 
@@ -39,8 +36,16 @@ public class SecurityConfig {
     	UserDetails user=User.builder()
     			.username("kiran")
                 .password(passwordEncoder().encode("1234"))
+                .roles("USER")
     			.build();
-		return new InMemoryUserDetailsManager(user);
+    	
+    	
+    	UserDetails admin=User.builder()
+    			.username("admin")
+                .password(passwordEncoder().encode("1234"))
+                .roles("ADMIN")
+    			.build();
+		return new InMemoryUserDetailsManager(user, admin);
     }
     @Bean
     public PasswordEncoder passwordEncoder() {

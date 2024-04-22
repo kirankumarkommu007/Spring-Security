@@ -12,5 +12,15 @@ public class MyRestController {
 		return "Good Morning";
 	}
 	
+	@GetMapping("/admin")
+    public String getGreetad() {
+		return "hi admin";
+	}
+	
+	@GetMapping("/user")
+    public String getGreetus() {
+		return "hi user";
+	}
+	
 	
 }
