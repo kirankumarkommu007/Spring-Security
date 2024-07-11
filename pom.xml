@@ -9,28 +9,22 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-<<<<<<< HEAD
 	<artifactId>SpringSecurityBasicsAuthorization</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringSecurityBasicsAuthorization</name>
-=======
 	<artifactId>SpringSecurityBasics</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringSecurityBasics</name>
->>>>>>> main/kiran-DAO-authprovider
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-<<<<<<< HEAD
 	
-=======
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
->>>>>>> main/kiran-DAO-authprovider
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -70,7 +64,6 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
    
 <dependency>
     <groupId>org.springframework</groupId>
@@ -100,8 +93,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-=======
->>>>>>> main/kiran-DAO-authprovider
 	</dependencies>
 
 	<build>
